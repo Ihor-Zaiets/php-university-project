@@ -18,10 +18,9 @@ if (isset($_POST['save'])) {
 }
 
 if (isset($_POST['update'])) {
-    echo 'update';
-    echo $id = $_POST['id'];
-    echo $name = $_POST['name'];
-    echo $isbn = $_POST['isbn'];
+    $id = $_POST['id'];
+    $name = $_POST['name'];
+    $isbn = $_POST['isbn'];
 
     mysqli_query($db, "UPDATE book SET name='$name', isbn='$isbn' WHERE id=$id");
     $_SESSION['message'] = "isbn updated!";
