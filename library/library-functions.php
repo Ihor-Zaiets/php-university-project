@@ -33,3 +33,19 @@ if (isset($_GET['del'])) {
     $_SESSION['message'] = "Library deleted!";
     header('location: libraries.php');
 }
+
+if (isset($_POST['addBook'])) {
+    $book_id = $_POST['book_id'];
+    $library_id = $_POST['library_id'];
+    mysqli_query($db, "insert into book_library (book_id, library_id) values ('$book_id', '$library_id')");
+    $_SESSION['message'] = "Library book added to library!";
+    header('location: library-store.php?library_id='.$library_id);
+}
+
+if (isset($_GET['deleteBook'])) {
+    $book_id = $_GET['book_id'];
+    $library_id = $_GET['library_id'];
+    mysqli_query($db, "DELETE from book_library where book_id=$book_id");
+    $_SESSION['message'] = "Library book added to library!";
+    header('location: library-store.php?library_id='.$library_id);
+}
