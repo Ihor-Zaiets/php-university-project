@@ -55,8 +55,8 @@ if (isset($_GET['edit'])) {
 <form method="post" action="library-functions.php" >
     <input type="hidden" name="library_id" value=<?php echo $library_id?>>
     <div class="input-group">
-        <label>Book id</label>
-        <input type="text" name="book_id" value="">
+        <label>Book isbn</label>
+        <input type="text" name="book_isbn" value="">
     </div>
     <div class="input-group">
             <button class="btn" type="submit" name="addBook" >Add book to library</button>

@@ -35,9 +35,9 @@ if (isset($_GET['del'])) {
 }
 
 if (isset($_POST['addBook'])) {
-    $book_id = $_POST['book_id'];
+    $book_isbn = $_POST['book_isbn'];
     $library_id = $_POST['library_id'];
-    mysqli_query($db, "insert into book_library (book_id, library_id) values ('$book_id', '$library_id')");
+    mysqli_query($db, "insert into book_library (book_id, library_id) values ((select id from book where isbn = $book_isbn), '$library_id')");
     $_SESSION['message'] = "Library book added to library!";
     header('location: library-store.php?library_id='.$library_id);
 }
