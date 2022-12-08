@@ -16,7 +16,7 @@ if (isset($_GET['edit'])) {
 <!DOCTYPE html>
 <html>
 <head>
-    <title>CRUD: Create, Update, Delete PHP MySQL</title>
+    <title>Library</title>
     <link rel="stylesheet" type="text/css" href="../styles/style.css">
 </head>
 <body>
