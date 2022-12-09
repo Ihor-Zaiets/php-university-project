@@ -60,6 +60,14 @@ form {
     border-radius: 3px;
 }
 
+.blue_btn {
+    text-decoration: none;
+    padding: 2px 5px;
+    background: darkblue;
+    color: white;
+    border-radius: 3px;
+}
+
 .del_btn {
     text-decoration: none;
     padding: 2px 5px;

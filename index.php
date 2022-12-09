@@ -48,6 +48,12 @@ if (isset($_GET['edit'])) {
             </td>
         </tr>
     <?php } ?>
+<tr>
+    <td></td>
+    <td>
+        <a href="library/libraries.php" class="blue_btn" >Edit libraries</a>
+    </td>
+</tr>
 </table>
 </body>
 </html>

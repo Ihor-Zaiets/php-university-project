@@ -48,8 +48,34 @@ if (isset($_GET['edit'])) {
             <td>
                 <a href="library-functions.php?book_id=<?php echo $row['id']; ?>&library_id=<?php echo $library_id?>&deleteBook=true" class="del_btn" >Delete</a>
             </td>
+            <td>
+                <a href="user-book-lend.php?
+                library_id=<?php echo $library_id?>
+                &book_id=<?php echo $row['id']; ?>
+                &query=SELECT * FROM user
+                &seeLands=false"
+                   class="edit_btn"
+                >Lend book</a>
+            </td>
+            <td>
+                <a href="user-book-lend.php?
+                library_id=<?php echo $library_id?>
+                &book_id=<?php echo $row['id']; ?>
+                &query=SELECT * FROM user where id in (select user_id from book_user where book_id = <?php echo $row['id']; ?>)
+                &seeLands=true"
+                   class="edit_btn">See lends</a>
+            </td>
         </tr>
     <?php } ?>
+    <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>
+            <a href="../book/books.php" class="blue_btn" >Edit books</a>
+        </td>
+    </tr>
 </table>
 
 <form method="post" action="library-functions.php" >
