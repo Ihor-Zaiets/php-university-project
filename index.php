@@ -14,10 +14,10 @@ if (isset($_GET['edit'])) {
 }
 ?>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <title>List of libraries</title>
-    <link rel="stylesheet" type="text/css" href="../styles/style.css">
+    <link rel="stylesheet" type="text/css" href="styles/style.css">
 </head>
 <body>
 <?php if (isset($_SESSION['message'])): ?>
