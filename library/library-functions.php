@@ -12,7 +12,7 @@ if (isset($_POST['save'])) {
     $name = $_POST['name'];
     $owner = $_POST['owner'];
 
-    mysqli_query($db, "INSERT INTO library (name, owner) VALUES ('$name', '$owner')");
+    mysqli_query($db, "INSERT INTO library (name, owner) VALUES ('$name', (select id from user where pesel = '$owner'))");
     $_SESSION['message'] = "Library saved";
     header('location: libraries.php');
 }
@@ -22,7 +22,7 @@ if (isset($_POST['update'])) {
     $name = $_POST['name'];
     $owner = $_POST['owner'];
 
-    mysqli_query($db, "UPDATE library SET name='$name', owner='$owner' WHERE id=$id");
+    mysqli_query($db, "UPDATE library SET name='$name', owner=(select id from user where pesel = '$owner') WHERE id=$id");
     $_SESSION['message'] = "Library updated!";
     header('location: libraries.php');
 }

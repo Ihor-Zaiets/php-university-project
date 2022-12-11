@@ -6,11 +6,16 @@ if (isset($_GET['edit'])) {
     $sql = "select * from library where id = $id";
 
     $record = $db->query($sql);
-    if (true) {
-        $n = mysqli_fetch_array($record);
-        $name = $n['name'];
-        $owner = $n['owner'];
-    }
+
+    $n = mysqli_fetch_array($record);
+    $userId = $n['owner'];
+    $findUser = "select * from user where id = $userId";
+    $userRecord = $db->query($findUser);
+    $nUser = mysqli_fetch_array($userRecord);
+
+    $name = $n['name'];
+    $owner = $nUser['pesel'];
+
 }
 ?>
 <!DOCTYPE html>
@@ -30,7 +35,7 @@ if (isset($_GET['edit'])) {
 <?php endif ?>
 
 
-<?php $results = mysqli_query($db, "SELECT * FROM library"); ?>
+<?php $results = mysqli_query($db, "select l.id, l.name, u.pesel from library l inner join user u on l.owner = u.id"); ?>
 
 <table>
     <thead>
@@ -44,7 +49,7 @@ if (isset($_GET['edit'])) {
     <?php while ($row = mysqli_fetch_array($results)) { ?>
         <tr>
             <td><?php echo $row['name']; ?></td>
-            <td><?php echo $row['owner']; ?></td>
+            <td><?php echo $row['pesel']; ?></td>
             <td>
                 <a href="libraries.php?edit=<?php echo $row['id']; ?>" class="edit_btn" >Edit</a>
             </td>
